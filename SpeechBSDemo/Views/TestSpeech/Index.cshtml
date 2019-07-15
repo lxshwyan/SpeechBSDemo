@@ -1,0 +1,26 @@
+﻿
+@{
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<input type="text" id="speakTest" />
+<input type="button" value="开始转化语音" id="startSpeak"/>
+<audio controls='controls' autoplay="autoplay" id="audiosrc" type='audio/mpeg'  >
+</audio>
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            document.getElementById("startSpeak").onclick = function () {
+                var text = document.getElementById("speakTest").value;
+                document.getElementById("audiosrc").src = '/TestSpeech/PlayWav?id=1234&&spText=' + text;
+            }
+        });
+      
+    </script>
+}
+
+
